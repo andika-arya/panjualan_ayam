@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:penjualan_ayam/ui/berandaadmin.dart';
 import 'package:penjualan_ayam/ui/berandauser.dart';
 import 'package:http/http.dart' as http;
+import 'ui/home.dart';
 import 'dart:async';
 
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/BerandaAdmin': (BuildContext context)=> new BerandaAdmin(username: username, photo: photo),
         '/BerandaUser': (BuildContext context)=> new BerandaUser(username: username, photo: photo),
+        '/Crud': (BuildContext context)=> new Home(),
         '/MyHomePage': (BuildContext context)=> new MyHomePage(),
       },
     );
@@ -62,11 +64,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
       if(datauser['level']=="1"){
         // print("welcome admin");
-        Navigator.pushReplacementNamed(context, '/BerandaAdmin');
+        Navigator.pushReplacementNamed(context, '/Crud');
 
       } else if(datauser['level']=="2"){
         // print("welcome member");
-        Navigator.pushReplacementNamed(context, '/BerandaUser');
+        Navigator.pushReplacementNamed(context, '/Croud');
       }
 
       setState(() {
